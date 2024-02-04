@@ -134,7 +134,7 @@ const Introduction = ({
             {/* Right */}
             <div className="flex-1 flex items-center justify-center">
                {/* image */}
-               <div className="w-[350px] h-[450px] md:w-[450px] md:h-[550px] relative flex items-center justify-center overflow-hidden border-4 border-cs-orange bg-blend-multiply shadow-[-10px_10px] shadow-cs-orange">
+               <div className="w-[310px] h-[400px] md:w-[450px] md:h-[550px] relative flex items-center justify-center overflow-hidden border-4 border-cs-orange bg-blend-multiply shadow-[-10px_10px] shadow-cs-orange">
                   <Image
                      className="absolute origin-center -rotate-180 w-full h-full"
                      src={vector1}

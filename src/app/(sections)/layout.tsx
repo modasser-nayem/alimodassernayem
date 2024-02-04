@@ -5,7 +5,7 @@ import { FaCircleArrowUp } from "react-icons/fa6";
 
 const SectionLayout = ({ children }: TLayout) => {
    return (
-      <div className="dark:bg-slate-900 dark:text-cs-white">
+      <div className="dark:bg-slate-900 bg-white dark:text-cs-white text-black/80">
          <Navbar />
          <div className="navbar"></div>
          {children}

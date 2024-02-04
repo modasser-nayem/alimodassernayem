@@ -27,7 +27,7 @@ const ProjectCard = ({
    order,
 }: TProject) => {
    return (
-      <div className="bg-cs-blue-deep shadow-2xl grid lg:grid-cols-2 xl:grid-cols-9 gap-5 p-8">
+      <div className="bg-cs-blue-deep w-full shadow-2xl grid lg:grid-cols-2 xl:grid-cols-9 gap-5 p-4 md:p-8">
          <div className="col-span-1 xl:col-span-4">
             <img
                src={image}
@@ -54,7 +54,7 @@ const ProjectCard = ({
                   </p>
                ))}
             </div>
-            <div className="flex items-center gap-5 mb-2">
+            <div className="flex flex-wrap items-center gap-5 mb-2">
                {/* preview link */}
                {preview && (
                   <Link
