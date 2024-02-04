@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import React from "react";
 import { MdOutlineFileDownload } from "react-icons/md";
@@ -11,7 +9,7 @@ import {
 } from "react-icons/fa6";
 import vector1 from "@/assets/Vector1.png";
 import vector2 from "@/assets/Vector2.png";
-import men from "@/assets/nayem4.png";
+import introImg from "@/assets/nayem4.png";
 import Image from "next/image";
 import { TypeAnimation } from "react-type-animation";
 import NavLink from "@/components/NavLink";
@@ -20,7 +18,7 @@ type TIntroductionProps = {
    name: string;
    title: string[];
    resume?: string;
-   description: string;
+   sortDescription: string;
    image: string;
    facebook?: string;
    instagram?: string;
@@ -33,51 +31,46 @@ const Introduction = ({
    name,
    title,
    resume,
-   description,
+   sortDescription,
    image,
    facebook,
    instagram,
    linkedin,
    github,
 }: TIntroductionProps) => {
+   const transformedTitle: (string | number)[] = title.flatMap((occupation) => [
+      occupation,
+      3000,
+   ]);
+
    return (
       <section
          id="introduction"
-         className="cs-container"
+         className="cs-container relative"
       >
-         <div className="flex flex-col lg:flex-row items-center justify-center relative">
+         <div className="flex flex-col lg:flex-row items-center justify-center">
             {/* Left */}
             <div className="flex-1 py-[6rem]">
                <div className="cs-title-box">
                   <h1>Hey!, I AM</h1>
                   <h1>{name ? name : "Ali Modasser Nayem"}</h1>
                </div>
-               <h3 className="text-2xl italic capitalize font-semibold mt-2">
+               <h3 className="text-2xl italic font-semibold mt-2 h-14 md:h-auto">
                   I am a __
                   <TypeAnimation
                      sequence={
-                        title
-                           ? title
-                                .join(",3000,")
-                                .split(",")
-                                .map((item: string) => {
-                                   if (isNaN(parseInt(item))) {
-                                      return item;
-                                   } else {
-                                      return parseFloat(item);
-                                   }
-                                })
-                           : ["Full-Stack Web Developer", 1000]
+                        transformedTitle
+                           ? transformedTitle
+                           : ["Full-Stack Developer"]
                      }
-                     speed={50}
+                     speed={20}
                      className="text-cs-orange"
                      wrapper="span"
                      repeat={Infinity}
                   />
-                  __
                </h3>
                <p className="dark:text-cs-white text-cs-gray text-lg my-8">
-                  {description}
+                  {sortDescription}
                </p>
                <div className="flex items-center gap-5">
                   {resume && (
@@ -147,14 +140,16 @@ const Introduction = ({
                   />
                   <Image
                      className="absolute w-full h-full"
-                     src={men}
+                     src={introImg}
                      alt="ali modasser nayem"
                   />
                </div>
             </div>
-            {/* bg blur */}
-            <div className="cs-bg-blur right-0 top-0 bg-purple-200"></div>
-            <div className="cs-bg-blur left-[35%] bottom-0"></div>
+         </div>
+         {/* bg blur */}
+         <div className="">
+            <div className="-z-10 cs-bg-blur right-0 top-0 bg-purple-200"></div>
+            <div className="-z-10 cs-bg-blur left-[35%] bottom-0"></div>
          </div>
       </section>
    );

@@ -16,13 +16,13 @@ export default function RootLayout({ children }: TLayout) {
    return (
       <html
          lang="en"
-         suppressHydrationWarning
+         suppressHydrationWarning={true}
       >
-         <StoreProvider>
-            <body className={inter.className}>
+         <body className={inter.className}>
+            <StoreProvider>
                <CustomTheme>{children}</CustomTheme>
-            </body>
-         </StoreProvider>
+            </StoreProvider>
+         </body>
       </html>
    );
 }

@@ -32,6 +32,7 @@ const ContactInput = ({
             value={value}
             onChange={onchange}
             placeholder={placeholder}
+            required
             className="w-full py-1.5 outline-none border-b-2 focus:border-cs-orange focus:text-cs-orange focus:placeholder:text-cs-orange bg-transparent transition-all"
          />
       </div>

@@ -1,7 +1,10 @@
+"use client";
 import Link from "next/link";
 import NavLink from "./NavLink";
 import ToggleTheme from "./ToggleTheme";
-import { Bars3CenterLeftIcon } from "@heroicons/react/24/outline";
+import { useEffect, useRef, useState } from "react";
+import { AiOutlineClose } from "react-icons/ai";
+import { HiMiniBars3CenterLeft } from "react-icons/hi2";
 
 type TNavLinks = {
    name: string;
@@ -40,59 +43,81 @@ const Navbar = () => {
       // },
    ];
 
+   const clickRef = useRef<HTMLDivElement>(null);
+   const [isOpen, setIsOpen] = useState(false);
+
+   useEffect(() => {
+      document.addEventListener("click", clickOutside, true);
+      return () => document.addEventListener("click", clickOutside, true);
+   }, []);
+
+   const clickOutside = (e: any) => {
+      if (clickRef.current && !clickRef.current.contains(e.target)) {
+         setIsOpen(false);
+         console.log("click");
+      } else if (e.target.className === "uppercase cursor-pointer nav-link") {
+         console.log("click-nav");
+         setIsOpen(false);
+      }
+   };
+
    return (
-      <nav className="navbar dark:bg-slate-900 bg-white bg-opacity-95 fixed z-[999] mx-auto px-[1rem] sm:px-[2rem] lg:px-[2rem] xl:px-[2.5rem] 2xl:px-[6rem]">
-         <div className="navbar-start">
-            <div className="dropdown">
-               <div
-                  tabIndex={0}
-                  role="button"
-                  className="btn btn-sm px-1.5 btn-ghost lg:hidden block"
+      <nav
+         ref={clickRef}
+         className="fixed w-full z-40 h-[70px] backdrop-blur-2xl flex justify-center items-center"
+      >
+         <div className="container mx-auto flex items-center justify-between">
+            <div className="flex items-center gap-3">
+               <Link
+                  href="/"
+                  className="text-2xl md:text-4xl uppercase font-semibold text-cs-orange font-courgette scroll-smooth"
                >
-                  <Bars3CenterLeftIcon className="w-8 h-8" />
-               </div>
-               <ul
-                  tabIndex={1}
-                  className="menu menu-sm dropdown-content mt-3 z-[1] p-3 shadow-lg bg-base-100 rounded-box w-52"
+                  Nayem
+               </Link>
+               <button
+                  onClick={() => setIsOpen(!isOpen)}
+                  className="lg:hidden text-3xl tooltip tooltip-right tooltip-warning"
+                  data-tip="menu"
                >
-                  {navLinks.map((item) => (
-                     <li key={item.name}>
-                        <NavLink path={item.path}>{item.name}</NavLink>
-                     </li>
-                  ))}
-               </ul>
+                  {isOpen ? (
+                     <AiOutlineClose className="" />
+                  ) : (
+                     <HiMiniBars3CenterLeft />
+                  )}
+               </button>
             </div>
-            <Link
-               href="/"
-               className="text-2xl font-bold scroll-smooth"
+            {/* nav links */}
+            <div
+               className={`flex flex-col lg:flex-row items-center gap-10 absolute lg:static left-0 w-full lg:w-auto -z-50 lg:z-auto py-10 lg:py-0 transition-all duration-500 ease-linear lg:transition-none ${
+                  isOpen
+                     ? "bg-white dark:bg-cs-blue-deep top-[70px]"
+                     : " -top-[900px]"
+               }`}
             >
-               Nayem
-            </Link>
-         </div>
-         {/*  */}
-         <div className="navbar-center hidden lg:block">
-            <div className="flex gap-5 px-1">
-               {navLinks.map((item) => (
-                  <NavLink
-                     className="uppercase cursor-pointer"
-                     activeClass="text-cs-orange"
-                     path={item.path}
-                     key={item.name}
-                  >
-                     {item.name}
-                  </NavLink>
-               ))}
+               <div className="flex flex-col font-medium items-center lg:flex-row gap-5 px-1">
+                  {navLinks.map((item) => (
+                     <NavLink
+                        key={item.name}
+                        className="uppercase cursor-pointer nav-link"
+                        activeClass="text-cs-orange"
+                        path={item.path}
+                     >
+                        {item.name}
+                     </NavLink>
+                  ))}
+               </div>
             </div>
-         </div>
-         <div className="navbar-end">
-            <div className="flex items-center gap-5">
-               <NavLink
-                  className="cs-btn"
-                  path="contact"
-               >
-                  Contact
-               </NavLink>
-               <ToggleTheme />
+            {/* responsive button */}
+            <div>
+               <div className="flex items-center gap-5">
+                  <NavLink
+                     className="cs-btn"
+                     path="contact"
+                  >
+                     Contact
+                  </NavLink>
+                  <ToggleTheme />
+               </div>
             </div>
          </div>
       </nav>

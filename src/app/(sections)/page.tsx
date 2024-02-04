@@ -1,3 +1,5 @@
+"use client";
+
 import Introduction from "./Introduction/Introduction";
 import About from "./About/About";
 import Skills from "./Skills/Skills";
@@ -5,29 +7,76 @@ import Projects from "./Projects/Projects";
 import Services from "./Services/Services";
 import Contact from "./Contact/Contact";
 import Footer from "@/components/Footer";
+import { useAppSelector } from "@/Redux/hooks";
 
 const SectionPage = () => {
+   const state = useAppSelector((state) => state);
+
+   const information = useAppSelector((state) => state.information.information);
+   const skills = useAppSelector((state) => state.skills.skills);
+   const services = useAppSelector((state) => state.services.services);
+   const projects = useAppSelector((state) => state.projects.projects);
+
+   if (!information) return <p>Information Loading..</p>;
+   const {
+      name,
+      email,
+      description,
+      images,
+      phone,
+      socialMedia,
+      sortDescriptions,
+      title,
+      resume,
+      speech,
+   } = information;
    return (
-      <div className="">
-         <Introduction
-            name="Ali Modasser Nayem"
-            title={["Full-Stack Developer, Software Developer"]}
-            description="I work with Full-Stack Stack development. So I can work with Frontend and Backend of any website."
-            resume="dfg"
-            image="dsg"
-            facebook="https://web.facebook.com/alimodassernayem"
-            linkedin="https://www.linkedin.com/in/alimodassernayem/"
-            github="https://github.com/modasser-nayem"
-         />
-         <About />
-         <Skills />
-         <Projects />
-         <Services />
-         {/* <Blogs />
+      <>
+         {information && (
+            <div className="">
+               <Introduction
+                  name={name}
+                  title={title}
+                  sortDescription={sortDescriptions.introduction}
+                  resume={resume}
+                  image={images.introduction}
+                  facebook={socialMedia.facebook}
+                  linkedin={socialMedia.linkedin}
+                  github={socialMedia.github}
+               />
+               <About
+                  description={description}
+                  speech={speech}
+                  sortDescription={sortDescriptions.about}
+                  image={images.introduction}
+                  resume={resume}
+               />
+               <Skills
+                  sortDescription={sortDescriptions.skill}
+                  skills={skills}
+               />
+               <Projects
+                  sortDescription={sortDescriptions.project}
+                  projects={projects}
+               />
+               <Services
+                  sortDescription={sortDescriptions.service}
+                  services={services}
+               />
+               {/* <Blogs />
          <Testimonial /> */}
-         <Contact />
-         <Footer />
-      </div>
+               <Contact
+                  sortDescription={sortDescriptions.contact}
+                  email={email}
+                  facebook={socialMedia.facebook}
+                  github={socialMedia.github}
+                  instagram={socialMedia.instagram}
+                  linkedin={socialMedia.linkedin}
+               />
+               <Footer />
+            </div>
+         )}
+      </>
    );
 };
 

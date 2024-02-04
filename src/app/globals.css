@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+   background-color: whitesmoke;
+}
+
 @layer components {
    .cs-container {
       @apply min-h-screen container mx-auto mb-[8rem] md:mb-[12rem];
@@ -12,8 +16,8 @@
       height: 14rem;
       border-radius: 50%;
       background: #abf1ff94;
-      filter: blur(212px);
       z-index: -9;
+      filter: blur(212px);
       filter: blur(72px);
    }
    .cs-btn {
