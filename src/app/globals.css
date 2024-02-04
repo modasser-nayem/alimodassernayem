@@ -2,26 +2,42 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer components {
+   .cs-container {
+      @apply min-h-screen container mx-auto mb-[8rem] md:mb-[12rem];
+   }
+   .cs-bg-blur {
+      position: absolute;
+      width: 22rem;
+      height: 14rem;
+      border-radius: 50%;
+      background: #abf1ff94;
+      filter: blur(212px);
+      z-index: -9;
+      filter: blur(72px);
+   }
+   .cs-btn {
+      @apply flex items-center justify-center gap-2 cursor-pointer bg-gradient-to-b from-cs-yellow to-cs-orange px-5 lg:px-7 py-1.5 lg:py-2 dark:text-black text-white font-normal lg:font-medium rounded-full shadow-xl shadow-cs-orange hover:from-cs-orange hover:to-cs-yellow transition-all hover:shadow-inherit hover:text-black;
+   }
+   .cs-btn .cs-icon {
+      @apply text-2xl;
+   }
+   .cs-btn-outline {
+      @apply px-4 lg:px-5 py-1 lg:py-1.5 text-cs-orange font-medium rounded-full border-2 border-cs-orange hover:cs-btn hover:px-[16.5px] hover:py-1 hover:lg:px-5 hover:lg:py-1.5 flex items-center justify-center gap-2;
+   }
+   .cs-title-box {
+      @apply text-4xl xl:text-5xl font-bold leading-snug xl:leading-normal;
+   }
+   .cs-title-box > h1:nth-child(2) {
+      @apply text-cs-orange;
+   }
+   .cs-title-box > p {
+      @apply text-lg font-normal max-w-[700px] dark:text-cs-white text-cs-gray;
+   }
+   .cs-social-icon {
+      @apply text-cs-orange text-3xl md:text-5xl hover:scale-110 transition-all flex flex-col items-center;
+   }
+   .cs-project-icon-link {
+      @apply rounded-md bg-transparent cs-btn-outline hover:rounded-md;
+   }
 }
