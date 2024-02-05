@@ -148,7 +148,7 @@ const Introduction = ({
          </div>
          {/* bg blur */}
          <div className="">
-            <div className="-z-10 cs-bg-blur right-0 top-0 bg-purple-200"></div>
+            <div className="-z-10 cs-bg-blur right-0 top-0 bg-purple-400 md:bg-purple-200"></div>
             <div className="-z-10 cs-bg-blur left-[35%] bottom-0"></div>
          </div>
       </section>

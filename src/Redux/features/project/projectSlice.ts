@@ -21,15 +21,17 @@ const initialState: { projects: TProject[] } = {
          _id: "1",
          title: "E-commerce",
          description:
-            "My personal portfolio site that shows my experience and skills. Furthermore you get a closer look on who I am. It's all crafted by myself. From the idea, over the design and development to the DevOps part. This site was a great teacher in terms of deployment and how to setup a proper CI/CD Pipeline in combination with a Linux Server. I also learned a lot more about Docker and Docker Compose and shifted from just a user of docker containers to a builder of own docker images and how to compose them. I wouldn't call myself a Docker expert yet, but I'm progressing more and more.",
-         image: "https://jean-marc.io/_next/image?url=https%3A%2F%2Fmedia.graphassets.com%2F3Yg4fofVRXWZ5yrWhzrY&w=1920&q=90",
+            "My personal portfolio site that shows my experience and skills. Furthermore you get a closer look on who I am. It's all crafted by myself. From the idea, over the design and development to the DevOps part. This site was a great teacher in terms of deployment and how to setup a proper CI/CD Pipeline in combination with a Linux Server. I also learned a lot more about Docker and Docker Compose and shifted from just a user of docker containers to a builder of own docker images and how to compose them.",
+         image: "https://themeforest.img.customer.envatousercontent.com/files/261150567/theme-preview3.jpg?auto=compress%2Cformat&fit=crop&crop=top&w=590&h=300&s=0dbb748ee7e6fba15ddff5953a4c6145",
          technology: [
-            "Javascript",
-            "reactjs",
+            "Typescript",
+            "React",
             "Node",
+            "Express",
             "Mongodb",
-            "tailwindcss",
-            "docker",
+            "Mongoose",
+            "Tailwind",
+            "Docker",
          ],
          code: {
             client: "https://toys-house1.web.app/",
@@ -40,17 +42,18 @@ const initialState: { projects: TProject[] } = {
       },
       {
          _id: "2",
-         title: "Food Devvary",
+         title: "Food Delivery",
          description:
-            "My personal portfolio site that shows my experience and skills. Furthermore you get a closer look on who I am. It's all crafted by myself. From the idea, over the design and development to the DevOps part. This site was a great teacher in terms of deployment and how to setup a proper CI/CD Pipeline in combination with a Linux Server. I also learned a lot more about Docker and Docker Compose and shifted from just a user of docker containers to a builder of own docker images and how to compose them. I wouldn't call myself a Docker expert yet, but I'm progressing more and more.",
-         image: "https://jean-marc.io/_next/image?url=https%3A%2F%2Fmedia.graphassets.com%2F3Yg4fofVRXWZ5yrWhzrY&w=1920&q=90",
+            "My personal portfolio site that shows my experience and skills. Furthermore you get a closer look on who I am. It's all crafted by myself. From the idea, over the design and development to the DevOps part. This site was a great teacher in terms of deployment and how to setup a proper CI/CD Pipeline in combination with a Linux Server. I also learned a lot more about Docker and Docker Compose and shifted from just a user of docker containers to a builder of own docker images and how to compose them.",
+         image: "https://themeforest.img.customer.envatousercontent.com/files/297800248/yummi-preview-no-price.jpg?auto=compress%2Cformat&fit=crop&crop=top&w=590&h=300&s=de945918224e0f393e8d126c36c762e3",
          technology: [
-            "Javascript",
-            "reactjs",
+            "Typescript",
+            "React",
             "Node",
+            "Express",
             "Mongodb",
-            "tailwindcss",
-            "docker",
+            "Mongoose",
+            "Material UI",
          ],
          code: {
             client: "https://toys-house1.web.app/",
@@ -61,17 +64,18 @@ const initialState: { projects: TProject[] } = {
       },
       {
          _id: "3",
-         title: "E-commerce",
+         title: "Task Management",
          description:
-            "My personal portfolio site that shows my experience and skills. Furthermore you get a closer look on who I am. It's all crafted by myself. From the idea, over the design and development to the DevOps part. This site was a great teacher in terms of deployment and how to setup a proper CI/CD Pipeline in combination with a Linux Server. I also learned a lot more about Docker and Docker Compose and shifted from just a user of docker containers to a builder of own docker images and how to compose them. I wouldn't call myself a Docker expert yet, but I'm progressing more and more.",
-         image: "https://jean-marc.io/_next/image?url=https%3A%2F%2Fmedia.graphassets.com%2F3Yg4fofVRXWZ5yrWhzrY&w=1920&q=90",
+            "My personal portfolio site that shows my experience and skills. Furthermore you get a closer look on who I am. It's all crafted by myself. From the idea, over the design and development to the DevOps part. This site was a great teacher in terms of deployment and how to setup a proper CI/CD Pipeline in combination with a Linux Server.",
+         image: "https://s3.envato.com/files/411228393/01_Screenshot.jpg.jpg",
          technology: [
             "Javascript",
-            "reactjs",
+            "React",
             "Node",
+            "Express",
             "Mongodb",
-            "tailwindcss",
-            "docker",
+            "Mongoose",
+            "Tailwind",
          ],
          code: {
             client: "https://toys-house1.web.app/",
@@ -82,18 +86,11 @@ const initialState: { projects: TProject[] } = {
       },
       {
          _id: "4",
-         title: "E-commerce",
+         title: "Blog Site",
          description:
-            "My personal portfolio site that shows my experience and skills. Furthermore you get a closer look on who I am. It's all crafted by myself. From the idea, over the design and development to the DevOps part. This site was a great teacher in terms of deployment and how to setup a proper CI/CD Pipeline in combination with a Linux Server. I also learned a lot more about Docker and Docker Compose and shifted from just a user of docker containers to a builder of own docker images and how to compose them. I wouldn't call myself a Docker expert yet, but I'm progressing more and more.",
-         image: "https://jean-marc.io/_next/image?url=https%3A%2F%2Fmedia.graphassets.com%2F3Yg4fofVRXWZ5yrWhzrY&w=1920&q=90",
-         technology: [
-            "Javascript",
-            "reactjs",
-            "Node",
-            "Mongodb",
-            "tailwindcss",
-            "docker",
-         ],
+            "My personal portfolio site that shows my experience and skills. Furthermore you get a closer look on who I am. It's all crafted by myself. From the idea, over the design and development to the DevOps part. This site was a great teacher in terms of deployment and how to setup a proper CI/CD Pipeline in combination with a Linux Server. I also learned a lot more about Docker and Docker Compose",
+         image: "https://themeforest.img.customer.envatousercontent.com/files/337087141/preview.png?auto=compress%2Cformat&fit=crop&crop=top&w=590&h=300&s=3e9393907f51bb0c36e981e961372f5f",
+         technology: ["Typescript", "Next JS", "Mongodb", "tailwind", "Docker"],
          code: {
             client: "https://toys-house1.web.app/",
             server: "https://toys-house1.web.app/",

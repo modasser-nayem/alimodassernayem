@@ -11,11 +11,11 @@ import { FaCircleArrowUp } from "react-icons/fa6";
 
 const SectionLayout = ({ children }: TLayout) => {
    const dispatch = useAppDispatch();
-   const { data, isLoading, isSuccess, isError } = useGetInformationQuery("");
+   const { data, isLoading } = useGetInformationQuery("");
    // console.log("Before == ", { data, isLoading, isSuccess, isError });
 
    if (isLoading) return <Loading />;
-   if (!isSuccess) return <p>notSuccess...</p>;
+   // if (!isSuccess) return <p>notSuccess...</p>;
 
    // if (data) {
    //    dispatch(setInformation(data.data));
