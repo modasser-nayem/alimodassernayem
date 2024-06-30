@@ -1,15 +1,15 @@
 import ScrollToTop from "@/components/shared/ScrollToTop";
 import Footer from "@/components/shared/Footer";
-import DashboardNavbar from "@/components/ui/dashboard/DashboardNavbar/DashboardNavbar";
 import { TChildren } from "@/types";
+import Navbar from "@/components/shared/Navbar";
 
-const DashboardLayout = ({ children }: TChildren) => {
+const CommonLayout = ({ children }: TChildren) => {
    return (
       <div className="dark:bg-slate-900 dark:text-cs-white text-black/80">
-         <DashboardNavbar />
+         <Navbar />
          <div className="h-[80px]"></div>
          {/* Main page */}
-         <div className="min-h-[90vh]">{children}</div>
+         {children}
          {/* Main page end */}
          <ScrollToTop />
          <Footer />
@@ -17,4 +17,4 @@ const DashboardLayout = ({ children }: TChildren) => {
    );
 };
 
-export default DashboardLayout;
+export default CommonLayout;

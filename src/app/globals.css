@@ -41,4 +41,7 @@ body {
    .cs-project-icon-link {
       @apply rounded-md bg-transparent cs-btn-outline hover:rounded-md;
    }
+   .cs-input {
+      @apply px-4 py-3 rounded-md bg-inherit border-2 border-gray-400 focus-within:border-cs-yellow outline-none focus-within:ring-1 focus-within:ring-cs-orange;
+   }
 }
