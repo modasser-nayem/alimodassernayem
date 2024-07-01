@@ -17,7 +17,6 @@ const baseQuery = fetchBaseQuery({
    prepareHeaders: (headers, { getState }) => {
       // get token in state
       const token = (getState() as RootState).auth.token;
-      console.log(token);
       if (token) {
          headers.set("authorization", token);
       }
@@ -52,12 +51,12 @@ export const baseApi = createApi({
    reducerPath: "api",
    baseQuery: baseQueryTokenChecking,
    endpoints: () => ({}),
-   tagTypes: [],
+   tagTypes: ["projects"],
 });
 
 interface TErrorData {
    message?: string;
-   errorDetails?: any;
+   errors?: any;
 }
 
 interface TReduxRtqError {

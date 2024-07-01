@@ -19,12 +19,12 @@ const Projects = ({ sortDescription, projects }: TProjectProps) => {
             {sortDescription && <p className="mx-auto">{sortDescription}</p>}
          </div>
          <div className="mt-[5rem] grid gap-10">
-            {projects.map((item, i) => (
+            {projects.map((item) => (
                <ProjectCard
                   key={item._id}
                   id={item._id}
                   title={item.title}
-                  about={item.description}
+                  about={item.about}
                   image={item.image}
                   technology={item.technology}
                   code={item.code}

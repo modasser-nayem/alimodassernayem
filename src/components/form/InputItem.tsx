@@ -40,10 +40,11 @@ const InputItem = ({
                   placeholder={placeholder}
                />
                {error && (
-                  <div className="label">
-                     <span className="label-text-alt">
-                        <MdError /> {error?.message}
+                  <div className="label flex items-center justify-start gap-1 text-red-500 text-sm">
+                     <span>
+                        <MdError />
                      </span>
+                     <span>{error.message}</span>
                   </div>
                )}
             </label>

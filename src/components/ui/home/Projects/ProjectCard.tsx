@@ -4,13 +4,13 @@ import { FaCode } from "react-icons/fa6";
 import { BiDetail } from "react-icons/bi";
 import Image from "next/image";
 
-type TProject = {
+type TProjectCardProps = {
    id: string;
    title: string;
    about: string;
    image: string;
    technology: string[];
-   code: {
+   code?: {
       client?: string;
       server?: string;
    };
@@ -25,7 +25,7 @@ const ProjectCard = ({
    technology,
    code,
    preview,
-}: TProject) => {
+}: TProjectCardProps) => {
    return (
       <div className="bg-cs-blue-deep w-full shadow-2xl grid lg:grid-cols-2 xl:grid-cols-9 gap-5 p-4 md:p-8">
          <div className="col-span-1 xl:col-span-4">
@@ -69,7 +69,7 @@ const ProjectCard = ({
                )}
 
                {/* client code link */}
-               {code.client && (
+               {code?.client && (
                   <Link
                      className="cs-project-icon-link"
                      href={code.client}
@@ -80,7 +80,7 @@ const ProjectCard = ({
                )}
 
                {/* server code link */}
-               {code.server && (
+               {code?.server && (
                   <Link
                      className="cs-project-icon-link"
                      href={code.server}

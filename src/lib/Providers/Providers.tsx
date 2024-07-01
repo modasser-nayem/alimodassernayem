@@ -1,11 +1,11 @@
 "use client";
 
-import { persistor, store } from "@/redux/store";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { ReactNode } from "react";
 import { ThemeProvider } from "next-themes";
 import { Toaster } from "sonner";
+import { persistor, store } from "@/redux/store";
 
 type ProvidersProps = {
    children: ReactNode;

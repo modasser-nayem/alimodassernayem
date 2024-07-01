@@ -1,4 +1,5 @@
-import { TSkill } from "@/Redux/features/skill/skillSlice";
+import { TSkill } from "@/types/skill";
+import Image from "next/image";
 import React from "react";
 
 type TSkillsProps = {
@@ -24,10 +25,12 @@ const Skills = ({ sortDescription, skills }: TSkillsProps) => {
                      key={skill._id}
                      className="flex items-center gap-4 shadow-xl px-5 py-2 rounded-lg border-2 border-hidden hover:shadow-cs-orange border-cs-orange"
                   >
-                     <img
+                     <Image
                         src={`${skill.icon}`}
                         alt={skill.name}
                         className="w-[40px] h-[40px]"
+                        width={40}
+                        height={40}
                      />
                      <h4 className="text-2xl font-semibold">{skill.name}</h4>
                   </div>

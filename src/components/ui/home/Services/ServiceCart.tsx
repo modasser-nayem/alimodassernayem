@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 type TServiceCartProps = {
    name: string;
    description: string;
@@ -7,10 +9,12 @@ type TServiceCartProps = {
 const ServiceCart = ({ icon, name, description }: TServiceCartProps) => {
    return (
       <div className="shadow-2xl rounded-xl text-center p-8 flex flex-col items-center gap-5 w-full h-full bg-cs-blue-deep">
-         <img
+         <Image
             className="w-[100px] h-[100px] rounded-md"
             src={icon}
             alt={name}
+            width={100}
+            height={100}
          />
          <h3 className="text-2xl font-semibold text-cs-orange">{name}</h3>
          <p className="text-cs-white">{description}</p>
