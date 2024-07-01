@@ -64,6 +64,7 @@ const SectionPage = () => {
                />
                {/* <Blogs />
          <Testimonial /> */}
+               {/* "// trigger build" */}
                <Contact
                   sortDescription={sortDescriptions.contact}
                   email={email}
