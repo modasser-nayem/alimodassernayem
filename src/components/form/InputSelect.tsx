@@ -35,7 +35,7 @@ const InputSelect = ({
                <select
                   {...field}
                   value={field.value ?? ""}
-                  className={`${className} cs-input w-full ${
+                  className={`${className} cs-input w-full capitalize ${
                      error && "border-red-600"
                   }`}
                >
@@ -44,7 +44,7 @@ const InputSelect = ({
                      <option
                         key={i}
                         value={item.value}
-                        className={`${itemClass}`}
+                        className={`${itemClass} capitalize`}
                      >
                         {item.label}
                      </option>

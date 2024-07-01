@@ -1,11 +1,11 @@
 import React, { ReactNode, useEffect, useState } from "react";
-import FormWrapper from "./FormWrapper";
+import FormWrapper, { TValidationErrors } from "./FormWrapper";
 import { FieldValues, SubmitHandler } from "react-hook-form";
 import { ZodType } from "zod";
 import { IoMdClose } from "react-icons/io";
 
 interface DialogProps {
-   openText: string;
+   openText?: string;
    openIcon?: ReactNode;
    title?: string;
    openClassName?: string;
@@ -14,6 +14,7 @@ interface DialogProps {
    submitBtnLoading?: boolean;
    onSubmit: SubmitHandler<FieldValues>;
    successSubmit?: boolean;
+   errors?: TValidationErrors[];
    defaultValues?: Record<string, any>;
    validationSchema?: ZodType<any, any, any>;
    className?: string;
@@ -27,6 +28,7 @@ const FormDialog: React.FC<DialogProps> = ({
    children,
    onSubmit,
    successSubmit,
+   errors,
    defaultValues,
    validationSchema,
    className,
@@ -61,7 +63,7 @@ const FormDialog: React.FC<DialogProps> = ({
       <>
          <button
             onClick={handleOpenDialog}
-            className={`${openClassName} cs-btn`}
+            className={`${openClassName}`}
          >
             {openIcon && openIcon} {openText && <span>{openText}</span>}
          </button>
@@ -80,6 +82,7 @@ const FormDialog: React.FC<DialogProps> = ({
                         successSubmit={successSubmit}
                         validationSchema={validationSchema}
                         defaultValues={defaultValues}
+                        errors={errors}
                      >
                         <h2 className="text-2xl font-semibold mb-4 dark:text-gray-700">
                            {title && title}

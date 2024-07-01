@@ -51,7 +51,7 @@ export const baseApi = createApi({
    reducerPath: "api",
    baseQuery: baseQueryTokenChecking,
    endpoints: () => ({}),
-   tagTypes: ["projects"],
+   tagTypes: ["projects", "skills"],
 });
 
 interface TErrorData {
