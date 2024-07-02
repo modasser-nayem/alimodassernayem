@@ -42,9 +42,11 @@ const ProjectCardForDashboard = ({
                   height={500}
                />
             </div>
-            <h2 className="text-2xl text-cs-orange font-semibold mt-2 mb-4">
-               {title}
-            </h2>
+            <Link href={`/projects/${id}`}>
+               <h2 className="text-2xl text-cs-orange hover:underline font-semibold mt-2 mb-4">
+                  {title}
+               </h2>
+            </Link>
             <h3 className="text-xl font-semibold mt-2 mb-4">
                Order: <span className="text-cs-orange">{order}</span>
             </h3>

@@ -34,8 +34,8 @@ const initialState: IInformation | null = {
    },
    images: {
       introduction:
-         "https://alimodassernayem.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fnayem4.48d67321.png&w=1920&q=75",
-      about: "https://alimodassernayem.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fnayem3.b98096a2.png&w=1920&q=75",
+         "https://res.cloudinary.com/ddogx3fld/image/upload/v1719847668/portfolio/introduction.png",
+      about: "https://res.cloudinary.com/ddogx3fld/image/upload/v1719847738/portfolio/about.png",
    },
 };
 

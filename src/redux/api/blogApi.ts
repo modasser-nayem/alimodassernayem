@@ -1,60 +1,60 @@
 import { apiMethod } from "@/constant/apiMethod";
 import { baseApi } from "./baseApi";
-import { TProject, TSingleProject } from "@/types/project";
 import { TQueryParams, TRtqQueryResponse } from "@/types/redux";
+import { TBlog, TSingleBlog } from "@/types/blog";
 import { makeQueryParams } from "@/utils/rtqApi";
 
-const projectApi = baseApi.injectEndpoints({
+const blogApi = baseApi.injectEndpoints({
    endpoints: (builder) => ({
-      addNewProject: builder.mutation({
+      createNewBlog: builder.mutation({
          query: (data) => ({
-            url: "/projects",
+            url: "/blogs",
             method: apiMethod.POST,
             body: data,
          }),
-         invalidatesTags: ["projects"],
+         invalidatesTags: ["blogs"],
       }),
-      updateProject: builder.mutation({
+      updateBlog: builder.mutation({
          query: ({ data, id }: { data: FormData; id: string }) => ({
-            url: `/projects/${id}`,
+            url: `/blogs/${id}`,
             method: apiMethod.PUT,
             body: data,
          }),
-         invalidatesTags: ["projects"],
+         invalidatesTags: ["blogs"],
       }),
-      getAllProjects: builder.query<TRtqQueryResponse<TProject[]>, any>({
+      getAllBlog: builder.query<TRtqQueryResponse<TBlog[]>, any>({
          query: (args: { query?: TQueryParams[] }) => {
             const params = makeQueryParams(args?.query);
 
             return {
-               url: "/projects",
+               url: "/blogs",
                method: apiMethod.GET,
                params: params,
             };
          },
-         providesTags: ["projects"],
+         providesTags: ["blogs"],
       }),
-      getSingleProject: builder.query<TRtqQueryResponse<TSingleProject>, any>({
+      getSingleBlog: builder.query<TRtqQueryResponse<TSingleBlog>, any>({
          query: ({ id }: { id: string }) => ({
-            url: `/projects/${id}`,
+            url: `/blogs/${id}`,
             method: apiMethod.GET,
          }),
-         providesTags: ["projects"],
+         providesTags: ["blogs"],
       }),
-      deleteProject: builder.mutation({
+      deleteBlog: builder.mutation({
          query: ({ id }: { id: string }) => ({
-            url: `/projects/${id}`,
+            url: `/blogs/${id}`,
             method: apiMethod.DELETE,
          }),
-         invalidatesTags: ["projects"],
+         invalidatesTags: ["blogs"],
       }),
    }),
 });
 
 export const {
-   useAddNewProjectMutation,
-   useUpdateProjectMutation,
-   useGetAllProjectsQuery,
-   useGetSingleProjectQuery,
-   useDeleteProjectMutation,
-} = projectApi;
+   useCreateNewBlogMutation,
+   useUpdateBlogMutation,
+   useGetAllBlogQuery,
+   useGetSingleBlogQuery,
+   useDeleteBlogMutation,
+} = blogApi;

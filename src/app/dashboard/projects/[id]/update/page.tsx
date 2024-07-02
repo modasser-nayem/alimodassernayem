@@ -72,7 +72,7 @@ const UpdateProjectPage = () => {
                className="mx-auto"
             >
                <h2 className="text-2xl font-semibold text-center mb-4">
-                  Add New Project
+                  Update Project
                </h2>
                <div className="grid grid-cols-2 gap-4">
                   <div className="col-span-2">

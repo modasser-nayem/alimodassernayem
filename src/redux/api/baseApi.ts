@@ -13,7 +13,7 @@ import { jwtDecode } from "jwt-decode";
 const apiUrl = process.env.NEXT_PUBLIC_BACKEND_API_URL;
 
 const baseQuery = fetchBaseQuery({
-   baseUrl: apiUrl,
+   baseUrl: `${apiUrl}`,
    prepareHeaders: (headers, { getState }) => {
       // get token in state
       const token = (getState() as RootState).auth.token;
@@ -51,7 +51,7 @@ export const baseApi = createApi({
    reducerPath: "api",
    baseQuery: baseQueryTokenChecking,
    endpoints: () => ({}),
-   tagTypes: ["projects", "skills"],
+   tagTypes: ["projects", "skills", "blogs"],
 });
 
 interface TErrorData {

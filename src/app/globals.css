@@ -6,6 +6,30 @@ body {
    background-color: whitesmoke;
 }
 
+/* Custom styles for the Quill editor */
+.text-editor .ql-container {
+   min-height: 200px; /* Adjust the height as needed */
+   border: 1.5px solid #e5e7eb; /* Light gray border */
+   border-radius: 0.375rem; /* Rounded corners */
+}
+
+.text-editor .ql-toolbar {
+   border: 1.5px solid #e5e7eb; /* Light gray border */
+   border-bottom: none;
+   border-radius: 0.375rem 0.375rem 0 0; /* Rounded top corners */
+}
+
+.text-editor .ql-editor {
+   padding: 1rem; /* Padding inside the editor */
+   min-height: 150px; /* Minimum height for the editor content */
+   line-height: 1.5; /* Line height for better readability */
+}
+
+.text-editor .ql-toolbar.ql-snow + .ql-container.ql-snow {
+   border-top-left-radius: 0;
+   border-top-right-radius: 0;
+}
+
 @layer components {
    .cs-container {
       @apply min-h-screen container mx-auto mb-[8rem] md:mb-[12rem];

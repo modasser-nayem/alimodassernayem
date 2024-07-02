@@ -1,7 +1,8 @@
 import { apiMethod } from "@/constant/apiMethod";
 import { baseApi } from "./baseApi";
-import { TRtqQueryResponse } from "@/types/redux";
+import { TQueryParams, TRtqQueryResponse } from "@/types/redux";
 import { TSingleSkill, TSkill } from "@/types/skill";
+import { makeQueryParams } from "@/utils/rtqApi";
 
 const skillApi = baseApi.injectEndpoints({
    endpoints: (builder) => ({
@@ -22,10 +23,15 @@ const skillApi = baseApi.injectEndpoints({
          invalidatesTags: ["skills"],
       }),
       getAllSkills: builder.query<TRtqQueryResponse<TSkill[]>, any>({
-         query: () => ({
-            url: "/skills",
-            method: apiMethod.GET,
-         }),
+         query: (args: { query?: TQueryParams[] }) => {
+            const params = makeQueryParams(args?.query);
+
+            return {
+               url: "/skills",
+               method: apiMethod.GET,
+               params: params,
+            };
+         },
          providesTags: ["skills"],
       }),
       getSingleSkill: builder.query<TRtqQueryResponse<TSingleSkill>, any>({
