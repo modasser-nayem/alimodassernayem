@@ -2,7 +2,7 @@ import { MdError } from "react-icons/md";
 import { Controller, useFormContext } from "react-hook-form";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-import { modules, formats } from "@/utils/quillConfig";
+// import { modules, formats } from "@/utils/quillConfig";
 
 type TTextEditorProps = {
    label: string;
@@ -20,6 +20,38 @@ const TextEditor = ({
    className,
 }: TTextEditorProps) => {
    const { control } = useFormContext();
+
+   const modules = {
+      toolbar: [
+         [{ header: [1, 2, false] }],
+         ["bold", "italic", "underline", "strike", "blockquote"],
+         [
+            { list: "ordered" },
+            { list: "bullet" },
+            { indent: "-1" },
+            { indent: "+1" },
+         ],
+         ["link", "image"],
+         ["clean"],
+      ],
+   };
+
+   const formats = [
+      "header",
+      "bold",
+      "italic",
+      "underline",
+      "strike",
+      "blockquote",
+      "list",
+      "bullet",
+      "indent",
+      "link",
+      "image",
+      "code-block", // Add code-block to formats
+      "video", // Include video for embedding videos
+      "formula", // Include formula for scientific and mathematical equations
+   ];
 
    return (
       <Controller

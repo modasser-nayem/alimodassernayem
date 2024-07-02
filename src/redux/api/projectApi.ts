@@ -23,7 +23,7 @@ const projectApi = baseApi.injectEndpoints({
          invalidatesTags: ["projects"],
       }),
       getAllProjects: builder.query<TRtqQueryResponse<TProject[]>, any>({
-         query: (args: { query?: TQueryParams[] }) => {
+         query: (args?: { query?: TQueryParams[] }) => {
             const params = makeQueryParams(args?.query);
 
             return {

@@ -3,7 +3,7 @@
 import FormWrapper, { TValidationErrors } from "@/components/form/FormWrapper";
 import InputItem from "@/components/form/InputItem";
 import MultiSelect from "@/components/form/MultipleSelect";
-import TextEditor from "@/components/form/TextEditor";
+// import TextEditor from "@/components/form/TextEditor";
 import { isReduxRTQError } from "@/redux/api/baseApi";
 import { useCreateNewBlogMutation } from "@/redux/api/blogApi";
 import { isFormValidationErrors } from "@/utils/isValidationErrors";
@@ -87,12 +87,19 @@ const CreateBlogPage = () => {
                   placeholder="Enter blog category"
                   required
                />
-               <TextEditor
+               <InputItem
                   label="Content"
+                  type="text"
                   name="content"
                   placeholder="Write your blog post"
                   required
                />
+               {/* <TextEditor
+                  label="Content"
+                  name="content"
+                  placeholder="Write your blog post"
+                  required
+               /> */}
                <MultiSelect
                   label="Tags"
                   name="tags"

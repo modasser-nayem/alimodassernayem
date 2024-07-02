@@ -54,12 +54,9 @@ const BlogDetailsPage = () => {
                      </div>
                   </div>
                   {blog.createdAt && (
-                     <div>
-                        <h4 className="text-xl font-semibold mb-1">Content</h4>
-                        <p className="text-cs-white leading-relaxed tracking-wide">
-                           {blog.createdAt}
-                        </p>
-                     </div>
+                     <p className="text-cs-white leading-relaxed tracking-wide">
+                        Publish {blog.createdAt.slice(0, 10)}
+                     </p>
                   )}
                </div>
             </div>

@@ -4,7 +4,9 @@ import React from "react";
 
 type TSkillsProps = {
    sortDescription: string;
-   skills: TSkill[];
+   skills?: TSkill[];
+   isError: boolean;
+   isLoading: boolean;
 };
 
 const Skills = ({ sortDescription, skills }: TSkillsProps) => {
@@ -20,7 +22,7 @@ const Skills = ({ sortDescription, skills }: TSkillsProps) => {
                {sortDescription && <p className="mx-auto">{sortDescription}</p>}
             </div>
             <div className="flex flex-wrap items-center gap-8 mt-[5rem] justify-center">
-               {skills.map((skill) => (
+               {skills?.map((skill) => (
                   <div
                      key={skill._id}
                      className="flex items-center gap-4 shadow-xl px-5 py-2 rounded-lg border-2 border-hidden hover:shadow-cs-orange border-cs-orange"

@@ -10,10 +10,7 @@ import { MdEdit } from "react-icons/md";
 
 const BlogPage = () => {
    const { data, isLoading } = useGetAllBlogQuery({
-      query: [
-         // { name: "status", value: "publish" },
-         { name: "limit", value: 0 },
-      ],
+      query: [{ name: "limit", value: 0 }],
    });
    const blogs = data?.data;
 

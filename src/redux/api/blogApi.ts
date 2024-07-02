@@ -23,7 +23,7 @@ const blogApi = baseApi.injectEndpoints({
          invalidatesTags: ["blogs"],
       }),
       getAllBlog: builder.query<TRtqQueryResponse<TBlog[]>, any>({
-         query: (args: { query?: TQueryParams[] }) => {
+         query: (args?: { query?: TQueryParams[] }) => {
             const params = makeQueryParams(args?.query);
 
             return {

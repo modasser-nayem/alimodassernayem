@@ -82,10 +82,10 @@ const Introduction = ({
                      </a>
                   )}
                   <NavLink
-                     path="contact"
+                     path="projects"
                      className="cs-btn"
                   >
-                     Hire me
+                     Projects
                   </NavLink>
                </div>
                <div className="flex items-center gap-8 mt-16">

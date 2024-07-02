@@ -23,7 +23,7 @@ const skillApi = baseApi.injectEndpoints({
          invalidatesTags: ["skills"],
       }),
       getAllSkills: builder.query<TRtqQueryResponse<TSkill[]>, any>({
-         query: (args: { query?: TQueryParams[] }) => {
+         query: (args?: { query?: TQueryParams[] }) => {
             const params = makeQueryParams(args?.query);
 
             return {

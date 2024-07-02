@@ -33,10 +33,10 @@ const Navbar = () => {
          name: "Services",
          path: "services",
       },
-      // {
-      //    name: "Blogs",
-      //    path: "blogs",
-      // },
+      {
+         name: "Blogs",
+         path: "blogs",
+      },
       // {
       //    name: "Testimonial",
       //    path: "testimonial",

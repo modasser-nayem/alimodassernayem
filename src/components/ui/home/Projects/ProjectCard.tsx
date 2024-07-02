@@ -39,12 +39,11 @@ const ProjectCard = ({
          </div>
          <div className="col-span-1 xl:col-span-5 flex flex-col justify-between gap-4">
             <div>
-               <h3 className="text-3xl text-cs-orange font-semibold mb-2">
-                  {title}
-               </h3>
-               <p className="text-cs-white leading-relaxed tracking-wide">
-                  {about}
-               </p>
+               <Link href={`/projects/${id}`}>
+                  <p className="text-cs-white leading-relaxed tracking-wide">
+                     {about}
+                  </p>
+               </Link>
             </div>
             <div className="flex flex-wrap items-center gap-x-5 gap-y-1  uppercase">
                {technology.map((item, i) => (

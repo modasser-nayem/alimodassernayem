@@ -107,8 +107,15 @@ const UpdateBlogPage = () => {
                         { label: "publish", value: "publish" },
                      ]}
                   />
-                  <TextEditor
+                  {/* <TextEditor
                      label="Content"
+                     name="content"
+                     placeholder="Write your blog post"
+                     required
+                  /> */}
+                  <InputItem
+                     label="Content"
+                     type="text"
                      name="content"
                      placeholder="Write your blog post"
                      required
