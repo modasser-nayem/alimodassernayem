@@ -2,8 +2,7 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../store";
 
 export type TDecodeUser = {
-   id: string;
-   role: string;
+   email: string;
    iat: number;
    exp: number;
 };

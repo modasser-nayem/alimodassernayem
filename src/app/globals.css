@@ -42,7 +42,7 @@ body {
       @apply cs-blur absolute w-[10rem] h-[6rem] lg:w-[22rem] lg:h-[14rem] md:h-[14rem] bg-[#89d4e394] md:bg-[#abf1ff94] rounded-full -z-10;
    }
    .cs-btn {
-      @apply flex items-center justify-center gap-2 cursor-pointer bg-gradient-to-b from-cs-yellow to-cs-orange px-5 lg:px-7 py-1.5 lg:py-2 dark:text-black text-white font-normal lg:font-medium rounded-full shadow-xl shadow-cs-orange hover:from-cs-orange hover:to-cs-yellow transition-all hover:shadow-inherit hover:text-black;
+      @apply flex items-center justify-center gap-2 cursor-pointer bg-gradient-to-b from-cs-yellow to-cs-orange px-5 lg:px-7 py-1.5 lg:py-2 dark:text-black text-white font-normal lg:font-medium rounded-full shadow-xl shadow-cs-orange hover:from-cs-orange hover:to-cs-yellow transition-all hover:shadow-inherit hover:text-black disabled:text-cs-orange/60;
    }
    .cs-btn .cs-icon {
       @apply text-2xl;
