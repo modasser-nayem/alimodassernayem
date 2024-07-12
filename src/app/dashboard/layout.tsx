@@ -21,7 +21,7 @@ const DashboardLayout = ({ children }: TChildren) => {
          <DashboardNavbar />
          <div className="h-[80px]"></div>
          {/* Main page */}
-         <div className="min-h-[90vh]">{children}</div>
+         <div className="min-h-[90vh] cs-container">{children}</div>
          {/* Main page end */}
          <ScrollToTop />
          <Footer />

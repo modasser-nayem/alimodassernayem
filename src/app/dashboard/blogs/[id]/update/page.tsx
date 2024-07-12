@@ -64,7 +64,7 @@ const UpdateBlogPage = () => {
    }, [data, error, isLoading]);
 
    return (
-      <div className="cs-container">
+      <div>
          {defaultFormValues && (
             <FormWrapper
                onSubmit={handleOnSubmit}

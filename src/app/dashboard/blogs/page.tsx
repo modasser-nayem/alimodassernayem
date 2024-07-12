@@ -15,7 +15,7 @@ const BlogPage = () => {
    const blogs = data?.data;
 
    return (
-      <div className="cs-container">
+      <div className="">
          <div className="my-6 flex items-center justify-between">
             <h2 className="text-3xl font-semibold">Blogs</h2>
             <Link

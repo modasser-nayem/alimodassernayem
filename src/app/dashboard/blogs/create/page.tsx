@@ -55,7 +55,7 @@ const CreateBlogPage = () => {
    }, [data, error, isLoading]);
 
    return (
-      <div className="cs-container">
+      <div>
          <FormWrapper
             onSubmit={handleOnSubmit}
             errors={errors}

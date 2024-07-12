@@ -13,13 +13,18 @@ const Skills = ({ sortDescription, skills }: TSkillsProps) => {
    return (
       <section
          id="skills"
-         className="cs-container"
+         className="cs-container min-h-[60vh]"
       >
          <div>
             <div className="cs-title-box text-center">
                <h1 className="text-2xl">My Awesome.</h1>
                <h1>Skills</h1>
                {sortDescription && <p className="mx-auto">{sortDescription}</p>}
+            </div>
+            <div className="mt-[3rem] w-fit mx-auto flex gap-4">
+               <button className="cs-btn-outline">Frontend</button>
+               <button className="cs-btn-outline">Backend</button>
+               <button className="cs-btn-outline">Tools</button>
             </div>
             <div className="flex flex-wrap items-center gap-8 mt-[5rem] justify-center">
                {skills?.map((skill) => (

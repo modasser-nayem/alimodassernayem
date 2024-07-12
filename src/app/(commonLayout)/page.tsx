@@ -8,11 +8,22 @@ import Projects from "@/components/ui/home/Projects/Projects";
 import Services from "@/components/ui/home/Services/Services";
 import Skills from "@/components/ui/home/Skills/Skills";
 import { useGetAllBlogQuery } from "@/redux/api/blogApi";
+import { useGetInformationQuery } from "@/redux/api/information";
 import { useGetAllProjectsQuery } from "@/redux/api/projectApi";
 import { useGetAllSkillsQuery } from "@/redux/api/skillApi";
-import { useAppSelector } from "@/redux/hook";
+import { setInformation } from "@/redux/features/information";
+import { useAppDispatch, useAppSelector } from "@/redux/hook";
+import { useEffect } from "react";
 
 const SectionPage = () => {
+   const dispatch = useAppDispatch();
+
+   const {
+      data: InformationData,
+      isLoading: InformationIsLoading,
+      isError: InformationIsError,
+   } = useGetInformationQuery(undefined);
+
    const {
       data: projectsData,
       isLoading: projectsIsLoading,
@@ -40,10 +51,16 @@ const SectionPage = () => {
    const blogs = blogsData?.data;
    const skills = skillsData?.data;
 
-   const state = useAppSelector((state) => state.auth);
-
    const information = useAppSelector((state) => state.information);
    const services = useAppSelector((state) => state.services);
+
+   useEffect(() => {
+      if (InformationData?.data) {
+         console.log(InformationData.data);
+         const informationFoundData = InformationData.data;
+         dispatch(setInformation(informationFoundData));
+      }
+   }, [InformationData, dispatch]);
 
    if (!information) return <p>Information Loading..</p>;
    const {
@@ -58,6 +75,7 @@ const SectionPage = () => {
       resume,
       speech,
    } = information;
+
    return (
       <>
          {information && (
@@ -78,6 +96,7 @@ const SectionPage = () => {
                   sortDescription={sortDescriptions.about}
                   image={images.introduction}
                   resume={resume}
+                  name={name}
                />
                <Skills
                   sortDescription={sortDescriptions.skill}

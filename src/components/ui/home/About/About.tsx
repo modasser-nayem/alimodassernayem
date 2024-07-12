@@ -10,6 +10,7 @@ type TAboutProps = {
    image: string;
    resume?: string;
    speech?: string;
+   name: string;
 };
 
 const About = ({
@@ -18,6 +19,7 @@ const About = ({
    image,
    resume,
    speech,
+   name,
 }: TAboutProps) => {
    return (
       <section
@@ -37,7 +39,7 @@ const About = ({
                         <MdFormatQuote className="mx-auto text-cs-orange text-4xl" />
                         <h3 className="text-cs-orange">{speech}</h3>
                         <p className="text-2xl font-semibold mt-5">
-                           - Ali Modasser Nayem -
+                           - {name} -
                         </p>
                      </div>
                   )}
@@ -63,13 +65,15 @@ const About = ({
                   </div>
                </div>
                <div className="mt-[3rem]">
-                  <Image
-                     src={image}
-                     alt="about"
-                     className="w-full max-w-[350px] max-h-[500px] md:max-w-[450px] md:max-h-[600px] bg-blend-lighten rounded-xl"
-                     width={450}
-                     height={600}
-                  />
+                  {image && (
+                     <Image
+                        src={image}
+                        alt="about"
+                        className="w-full max-w-[350px] max-h-[500px] md:max-w-[450px] md:max-h-[600px] bg-blend-lighten rounded-xl"
+                        width={450}
+                        height={600}
+                     />
+                  )}
                </div>
             </div>
          </div>

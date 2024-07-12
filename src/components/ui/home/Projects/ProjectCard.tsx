@@ -32,12 +32,17 @@ const ProjectCard = ({
             <Image
                src={image}
                alt={title}
-               className="w-full h-full max-w-[600px] max-h-[500px]"
+               className="w-full h-full max-w-[600px] max-h-[350px]"
                width={600}
-               height={500}
+               height={350}
             />
          </div>
          <div className="col-span-1 xl:col-span-5 flex flex-col justify-between gap-4">
+            <Link href={`/projects/${id}`}>
+               <h2 className="text-2xl hover:underline hover:text-cs-orange font-semibold mt-2 mb-4">
+                  {title}
+               </h2>
+            </Link>
             <div>
                <Link href={`/projects/${id}`}>
                   <p className="text-cs-white leading-relaxed tracking-wide">

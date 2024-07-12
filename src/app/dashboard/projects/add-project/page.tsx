@@ -18,6 +18,9 @@ const AddProjectPage = () => {
 
    const handleOnSubmit: SubmitHandler<FieldValues> = (formData) => {
       try {
+         formData.order = formData.order
+            ? Number(formData.order)
+            : formData.order;
          // Convert formData to a plain object
          const plainObject: { [key: string]: any } = {};
 

@@ -28,6 +28,9 @@ const UpdateProjectPage = () => {
 
    const handleOnSubmit: SubmitHandler<FieldValues> = (formData) => {
       try {
+         formData.order = formData.order
+            ? Number(formData.order)
+            : formData.order;
          // Convert formData to a plain object
          const plainObject: { [key: string]: any } = {};
 
@@ -41,7 +44,6 @@ const UpdateProjectPage = () => {
          // Create FormData and append jsonData
          const modifyData = new FormData();
          modifyData.append("data", jsonData);
-
          updateProject({ data: modifyData, id: projectId });
       } catch (error) {
          toast.error("Something went wrong! Try again.");

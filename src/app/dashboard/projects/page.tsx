@@ -5,7 +5,7 @@ import { FaPlus } from "react-icons/fa6";
 
 const ProjectsPage = () => {
    return (
-      <div className="cs-container">
+      <div>
          <div className="my-6 flex items-center justify-between">
             <h2 className="text-3xl font-semibold">Projects</h2>
             <Link

@@ -137,13 +137,15 @@ const Introduction = ({
                      src={vector2}
                      alt="vector2"
                   />
-                  <Image
-                     className="absolute w-full h-full"
-                     src={image}
-                     alt="ali modasser nayem"
-                     width={450}
-                     height={500}
-                  />
+                  {image && (
+                     <Image
+                        className="absolute w-full h-full"
+                        src={image}
+                        alt="ali modasser nayem"
+                        width={450}
+                        height={500}
+                     />
+                  )}
                </div>
             </div>
          </div>

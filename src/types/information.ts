@@ -2,8 +2,8 @@ export interface ISocialMedea {
    facebook?: string;
    instagram?: string;
    twitter?: string;
-   linkedin?: string;
-   github?: string;
+   linkedin: string;
+   github: string;
    discord?: string;
    youtube?: string;
    whatsapp?: string;

@@ -37,7 +37,7 @@ const ProjectCardForDashboard = ({
                <Image
                   src={image}
                   alt={title}
-                  className="w-full h-full max-w-[600px] max-h-[500px]"
+                  className="w-full h-full max-w-[600px] max-h-[300px]"
                   width={600}
                   height={500}
                />
