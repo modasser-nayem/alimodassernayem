@@ -1,10 +1,9 @@
 import Link from "next/link";
 import React from "react";
 import { FaFacebookF, FaGithub, FaInstagram } from "react-icons/fa6";
-import { MdEmail } from "react-icons/md";
+import { MdEmail, MdWhatsapp } from "react-icons/md";
 import { FaLinkedin } from "react-icons/fa";
 import ContactForm from "./ContactForm";
-import EmailCopy from "../../../shared/CopyClipboard";
 import CopyClipboard from "../../../shared/CopyClipboard";
 
 type TContactProps = {
@@ -14,6 +13,7 @@ type TContactProps = {
    instagram?: string;
    linkedin?: string;
    github?: string;
+   whatsapp?: string;
 };
 
 const Contact = ({
@@ -23,6 +23,7 @@ const Contact = ({
    instagram,
    linkedin,
    github,
+   whatsapp,
 }: TContactProps) => {
    return (
       <section
@@ -87,6 +88,16 @@ const Contact = ({
                            <FaGithub />
                            <p className="text-base hidden lg:block">Github</p>
                         </Link>
+                     )}
+                     {whatsapp && (
+                        <CopyClipboard textToCopy={whatsapp}>
+                           <p className="cs-social-icon cursor-pointer">
+                              <MdWhatsapp />
+                              <span className="text-base hidden lg:block">
+                                 WhatsApp
+                              </span>
+                           </p>
+                        </CopyClipboard>
                      )}
                   </div>
                </div>

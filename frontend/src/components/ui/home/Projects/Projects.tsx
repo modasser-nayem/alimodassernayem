@@ -51,7 +51,7 @@ const Projects = ({
                ))}
                <Link href="/projects">
                   <button className="cs-btn mx-auto mt-8">
-                     <IoMdEye /> View more...
+                     <IoMdEye /> View All Projects...
                   </button>
                </Link>
             </div>

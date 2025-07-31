@@ -3,6 +3,7 @@ import { MdFormatQuote, MdOutlineFileDownload } from "react-icons/md";
 import Link from "next/link";
 import NavLink from "@/components/shared/NavLink";
 import Image from "next/image";
+import DownloadCV from "../DownloadCV";
 
 type TAboutProps = {
    description: string;
@@ -47,15 +48,7 @@ const About = ({
                      {description}
                   </p>
                   <div className="flex items-center gap-5 mt-[4rem]">
-                     {resume && (
-                        <Link
-                           href={resume}
-                           className="cs-btn-outline flex items-center gap-2"
-                        >
-                           CV Download
-                           <MdOutlineFileDownload className="w-5 h-5" />
-                        </Link>
-                     )}
+                     <DownloadCV resumeUrl={resume} />
                      <NavLink
                         path="contact"
                         className="cs-btn"

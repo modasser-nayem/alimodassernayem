@@ -1,17 +1,19 @@
 import Link from "next/link";
 import React from "react";
-import { MdOutlineFileDownload } from "react-icons/md";
 import {
    FaFacebookF,
    FaGithub,
    FaInstagram,
    FaLinkedinIn,
+   FaWhatsapp,
 } from "react-icons/fa6";
 import vector1 from "@/assets/Vector1.png";
 import vector2 from "@/assets/Vector2.png";
 import Image from "next/image";
 import { TypeAnimation } from "react-type-animation";
 import NavLink from "@/components/shared/NavLink";
+import DownloadCV from "../DownloadCV";
+import CopyClipboard from "@/components/shared/CopyClipboard";
 
 type TIntroductionProps = {
    name: string;
@@ -36,6 +38,7 @@ const Introduction = ({
    instagram,
    linkedin,
    github,
+   whatsapp,
 }: TIntroductionProps) => {
    const transformedTitle: (string | number)[] = title.flatMap((occupation) => [
       occupation,
@@ -72,15 +75,7 @@ const Introduction = ({
                   {sortDescription}
                </p>
                <div className="flex items-center gap-5">
-                  {resume && (
-                     <a
-                        href={resume}
-                        className="cs-btn-outline"
-                     >
-                        CV Download
-                        <MdOutlineFileDownload />
-                     </a>
-                  )}
+                  <DownloadCV resumeUrl={resume} />
                   <NavLink
                      path="projects"
                      className="cs-btn"
@@ -120,6 +115,16 @@ const Introduction = ({
                      >
                         <FaGithub />
                      </Link>
+                  )}
+                  {whatsapp && (
+                     <CopyClipboard
+                        textToCopy={whatsapp}
+                        hoverTitle="Copy Number"
+                     >
+                        <p className="cs-social-icon cursor-pointer">
+                           <FaWhatsapp />
+                        </p>
+                     </CopyClipboard>
                   )}
                </div>
             </div>

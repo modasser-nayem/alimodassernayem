@@ -5,9 +5,14 @@ import { ReactNode, useState } from "react";
 type TCopyClipboardProps = {
    textToCopy: string;
    children: ReactNode;
+   hoverTitle?: string;
 };
 
-const CopyClipboard = ({ children, textToCopy }: TCopyClipboardProps) => {
+const CopyClipboard = ({
+   children,
+   textToCopy,
+   hoverTitle,
+}: TCopyClipboardProps) => {
    const [copied, setCopied] = useState(false);
 
    const copyToClipboard = async () => {
@@ -22,7 +27,7 @@ const CopyClipboard = ({ children, textToCopy }: TCopyClipboardProps) => {
    return (
       <div
          className="tooltip tooltip-top tooltip-warning"
-         data-tip={copied ? "Copied" : "Copy"}
+         data-tip={copied ? "Copied" : hoverTitle || "Copy"}
          onClick={copyToClipboard}
       >
          {children}

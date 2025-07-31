@@ -2,6 +2,7 @@ export type TBlog = {
    _id: string;
    title: string;
    thumbnail: string;
+   content: string;
    category: string;
    status: "draft" | "publish";
    createdAt: string;

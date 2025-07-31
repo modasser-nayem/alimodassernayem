@@ -56,7 +56,6 @@ const SectionPage = () => {
 
    useEffect(() => {
       if (InformationData?.data) {
-         console.log(InformationData.data);
          const informationFoundData = InformationData.data;
          dispatch(setInformation(informationFoundData));
       }
@@ -89,6 +88,7 @@ const SectionPage = () => {
                   facebook={socialMedia.facebook}
                   linkedin={socialMedia.linkedin}
                   github={socialMedia.github}
+                  whatsapp={socialMedia.whatsapp}
                />
                <About
                   description={description}
@@ -128,6 +128,7 @@ const SectionPage = () => {
                   github={socialMedia.github}
                   instagram={socialMedia.instagram}
                   linkedin={socialMedia.linkedin}
+                  whatsapp={socialMedia.whatsapp}
                />
             </div>
          )}

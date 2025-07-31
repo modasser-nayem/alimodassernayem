@@ -2,6 +2,7 @@
 
 import BackLink from "@/components/shared/BackLink";
 import Loading from "@/components/shared/Loading";
+import BlogCard from "@/components/ui/home/Blogs/BlogCard";
 import { useGetAllBlogQuery } from "@/redux/api/blogApi";
 import Image from "next/image";
 import Link from "next/link";
@@ -31,40 +32,18 @@ const BlogsPage = () => {
          ) : !blogs ? (
             <h2>No Have any data</h2>
          ) : (
-            <div className="mt-[5rem] grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+            <div className="mt-[5rem] grid md:grid-cols-2 xl:grid-cols-3 gap-5">
                {blogs.map((blog) => (
-                  <div
+                  <BlogCard
                      key={blog._id}
-                     className="bg-cs-blue-deep w-full shadow-2xl p-4 flex flex-col justify-between"
-                  >
-                     <div>
-                        <Link href={`/blogs/${blog._id}`}>
-                           <div className="">
-                              <Image
-                                 src={blog.thumbnail}
-                                 alt={blog.title}
-                                 className="w-full h-full max-w-[600px] max-h-[500px]"
-                                 width={600}
-                                 height={500}
-                              />
-                           </div>
-                        </Link>
-                        <Link href={`/blogs/${blog._id}`}>
-                           <h2 className="text-2xl text-cs-orange font-semibold mt-2 mb-4 hover:underline">
-                              {blog.title}{" "}
-                              <span className="text-base text-gray-200">{`( ${blog.category} )`}</span>
-                           </h2>
-                        </Link>
-                        <div className="flex items-center justify-between">
-                           <p>Publish: {blog.createdAt.slice(0, 10)} </p>
-                           <p className="text-base text-cs-orange">
-                              <Link href={`/blogs/${blog._id}`}>
-                                 See more...
-                              </Link>
-                           </p>
-                        </div>
-                     </div>
-                  </div>
+                     _id={blog._id}
+                     title={blog.title}
+                     thumbnail={blog.thumbnail}
+                     content={blog.content}
+                     category={blog.category}
+                     createdAt={blog.createdAt}
+                     status={blog.status}
+                  />
                ))}
             </div>
          )}

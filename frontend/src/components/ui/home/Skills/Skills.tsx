@@ -1,6 +1,8 @@
-import { TSkill } from "@/types/skill";
+"use client";
+
+import { TSkill, TStack } from "@/types/skill";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 type TSkillsProps = {
    sortDescription: string;
@@ -9,7 +11,38 @@ type TSkillsProps = {
    isLoading: boolean;
 };
 
-const Skills = ({ sortDescription, skills }: TSkillsProps) => {
+const Skills = ({ sortDescription, skills: dataSkills }: TSkillsProps) => {
+   const [stack, setStack] = useState<TStack>("all");
+
+   const [skills, setSkills] = useState<TSkill[] | undefined>(dataSkills);
+
+   useEffect(() => {
+      setSkills(dataSkills);
+   }, [dataSkills]);
+
+   const handleClick = (stack: TStack) => {
+      setStack(stack);
+
+      switch (stack) {
+         case "all":
+            setSkills(dataSkills);
+            break;
+         case "frontend":
+            setSkills(
+               dataSkills?.filter((skill) => skill.stack === "frontend")
+            );
+            break;
+         case "backend":
+            setSkills(dataSkills?.filter((skill) => skill.stack === "backend"));
+            break;
+         case "tools":
+            setSkills(dataSkills?.filter((skill) => skill.stack === "tools"));
+            break;
+         default:
+            setSkills(dataSkills);
+      }
+   };
+
    return (
       <section
          id="skills"
@@ -22,9 +55,38 @@ const Skills = ({ sortDescription, skills }: TSkillsProps) => {
                {sortDescription && <p className="mx-auto">{sortDescription}</p>}
             </div>
             <div className="mt-[3rem] w-fit mx-auto flex gap-4">
-               <button className="cs-btn-outline">Frontend</button>
-               <button className="cs-btn-outline">Backend</button>
-               <button className="cs-btn-outline">Tools</button>
+               <button
+                  onClick={() => handleClick("all")}
+                  className={`px-3 lg:px-5 py-0.5 lg:py-1 text-sm hover:py-0 ${
+                     stack === "all" ? "cs-btn" : "cs-btn-outline"
+                  }`}
+               >
+                  All
+               </button>
+               <button
+                  onClick={() => handleClick("frontend")}
+                  className={`px-3 lg:px-5 py-0.5 lg:py-1 text-sm hover:py-0 ${
+                     stack === "frontend" ? "cs-btn" : "cs-btn-outline"
+                  }`}
+               >
+                  Frontend
+               </button>
+               <button
+                  onClick={() => handleClick("backend")}
+                  className={`px-3 lg:px-5 py-0.5 lg:py-1 text-sm hover:py-0 ${
+                     stack === "backend" ? "cs-btn" : "cs-btn-outline"
+                  }`}
+               >
+                  Backend
+               </button>
+               <button
+                  onClick={() => handleClick("tools")}
+                  className={`px-3 lg:px-5 py-0.5 lg:py-1 text-sm hover:py-0 ${
+                     stack === "tools" ? "cs-btn" : "cs-btn-outline"
+                  }`}
+               >
+                  Tools
+               </button>
             </div>
             <div className="flex flex-wrap items-center gap-8 mt-[5rem] justify-center">
                {skills?.map((skill) => (

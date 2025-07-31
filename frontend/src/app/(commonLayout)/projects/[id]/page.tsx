@@ -36,12 +36,16 @@ const ProjectDetails = () => {
                   <h3 className="text-3xl text-cs-orange font-semibold mt-4">
                      {project.title}
                   </h3>
+
+                  {/* Overview */}
                   <div>
-                     <h4 className="text-xl font-semibold mb-1">About</h4>
+                     <h4 className="text-xl font-semibold mb-1">Overview</h4>
                      <p className="text-cs-white leading-relaxed tracking-wide">
                         {project.about}
                      </p>
                   </div>
+
+                  {/* Features */}
                   <div>
                      <h4 className="text-xl font-semibold mb-2">Features</h4>
                      {project.features && (
@@ -62,6 +66,8 @@ const ProjectDetails = () => {
                         </div>
                      )}
                   </div>
+
+                  {/* Technologies */}
                   <div>
                      <h4 className="text-xl font-semibold mb-1">Technology</h4>
                      <div className="flex flex-wrap items-center gap-x-5 gap-y-1  uppercase">
@@ -75,6 +81,8 @@ const ProjectDetails = () => {
                         ))}
                      </div>
                   </div>
+
+                  {/* Links */}
                   <div>
                      <h2 className="text-xl font-semibold mb-2">
                         Important Link
@@ -114,10 +122,12 @@ const ProjectDetails = () => {
                         )}
                      </div>
                   </div>
+
+                  {/* Details Overview */}
                   {project?.description && (
                      <div>
                         <h4 className="text-xl font-semibold mb-1">
-                           Description
+                           Details Overview
                         </h4>
                         <p className="text-cs-white leading-relaxed tracking-wide">
                            {project.description}
