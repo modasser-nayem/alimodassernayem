@@ -1,11 +1,11 @@
 {
-  "name": "backend",
+  "name": "portfolio-server",
   "version": "1.0.0",
   "description": "",
-  "main": "api/index.ts",
+  "main": "index.js",
   "scripts": {
-    "start": "node /dist/index.ts",
-    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
+    "start": "node ./dist/server.js",
+    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
     "build": "tsc",
     "lint": "eslint src --ignore-path .eslintignore --ext .ts",
     "lint:fix": "npx eslint src --fix",
@@ -17,7 +17,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@vercel/node": "^5.3.7",
     "cloudinary": "^1.41.3",
     "cors": "^2.8.5",
     "dotenv": "^16.3.2",
